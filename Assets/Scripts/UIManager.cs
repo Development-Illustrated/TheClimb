@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour {
     public void UpdateScore()
     {
         _score += 10;
-        Debug.Log("Player Score: " + _score);
         scoreTextDisplay.text = "Score: " + _score;
         PlayerPrefs.SetInt("PlayerScore", _score);
     }

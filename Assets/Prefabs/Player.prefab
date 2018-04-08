@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 198674657806973660}
   - component: {fileID: 199194408372101154}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,6 +187,7 @@ MonoBehaviour:
   can_jump: 1
   default_drag: 0
   wall_drag: 5
+  physicsColider: {fileID: 0}
   torque: 100
   _uiManager: {fileID: 0}
 --- !u!135 &135415589307826790
@@ -261,7 +262,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1065538722
+  randomSeed: -596112951
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -351,7 +352,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.32439446, g: 0.37294176, b: 0.5514706, a: 1}
+      maxColor: {r: 0.12759517, g: 0.2858133, b: 0.86764705, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -413,7 +414,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -454,7 +455,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -862,7 +863,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3577,7 +3578,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c9ca3c504a9f764e885e24d0aa83130, type: 2}
+  - {fileID: 2100000, guid: 929def7d12169ea46837639e8457674b, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

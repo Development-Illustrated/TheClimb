@@ -9,6 +9,7 @@ TagManager:
   - Booster Debris
   - Killer Floor
   - Floor
+  - Platform
   layers:
   - Default
   - TransparentFX

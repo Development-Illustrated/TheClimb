@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public int default_drag = 0;
     public int wall_drag = 5;
     Rigidbody player_rigidbody;
+    public Collider physicsColider;
 
     public float torque = 100f; // Revolution force for sphere
 
@@ -66,8 +67,6 @@ public class Player : MonoBehaviour {
 
     void PlayerJump()
     {
-        Debug.Log("Player just jumped!");
-
         //freeze the Z position
         player_rigidbody.constraints = RigidbodyConstraints.FreezePositionZ |RigidbodyConstraints.FreezeRotationZ;
 
@@ -78,7 +77,6 @@ public class Player : MonoBehaviour {
         //Jumps in right direction
         if (next_direction == "right")
         {
-            Debug.Log("Right");
             player_rigidbody.AddForce(forcedir, forceup, 0);
             player_rigidbody.AddTorque(transform.right * force_charge * player_rigidbody.velocity.y);
 
@@ -86,7 +84,6 @@ public class Player : MonoBehaviour {
         //Jumps in left direction
         else
         {
-            Debug.Log("Left");
             player_rigidbody.AddForce(-forcedir, forceup, 0);
             player_rigidbody.AddTorque(-transform.right * force_charge * player_rigidbody.velocity.y);
             
@@ -101,8 +98,10 @@ public class Player : MonoBehaviour {
         force_charge = 0;
     }
 
+
     void OnCollisionEnter(Collision col)
     {
+
         //Debug.Log("Collided");
         //Debug.Log(col.gameObject.name);
         Debug.Log("Collided with: "+col.gameObject.tag);
@@ -133,6 +132,12 @@ public class Player : MonoBehaviour {
             can_jump = true;
 
         }
+
+        else if (col.gameObject.tag == "Platform")
+        {
+            can_jump = true;
+        }
+
         else if (col.gameObject.tag == "Floor")
         {
             can_jump = true;
@@ -152,10 +157,7 @@ public class Player : MonoBehaviour {
             can_jump = true;
         }
 
-        else if (col.gameObject.tag == "Killer Debris")
-        {
-            KillPlayer();
-        }
+
         else if (col.gameObject.tag == "Killer Floor")
         {
             KillPlayer();
@@ -163,6 +165,7 @@ public class Player : MonoBehaviour {
 
 
     }
+
 
     void KillPlayer()
     {
